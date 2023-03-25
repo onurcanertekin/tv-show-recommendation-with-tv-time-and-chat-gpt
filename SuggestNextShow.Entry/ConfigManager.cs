@@ -27,5 +27,16 @@ namespace SuggestNextShow.Entry
         {
             return new SiteUriDto(ConfigurationManager.AppSettings["siteUri"]);
         }
+
+        /// <summary>
+        /// Get OpenAi Key to communicate with Api
+        /// <br></br>
+        /// <b>Note:</b>This key can obtain from <see href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</see>
+        /// </summary>
+        /// <returns></returns>
+        internal static OpenAiApiKeyDto GetOpenAikey()
+        {
+            return new OpenAiApiKeyDto(ConfigurationManager.AppSettings["openAiApiKey"]);
+        }
     }
 }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="CefSharp.OffScreen.NETCore" Version="111.2.20" />
+    <PackageReference Include="OpenAI" Version="1.6.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 
