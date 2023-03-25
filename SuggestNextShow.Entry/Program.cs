@@ -1,7 +1,8 @@
 ﻿using CefSharp.OffScreen;
-using StockBridge.Dto;
-using StockBridge.Entry;
-using StockBridge.Entry.Handlers.Helpers;
+using SuggestNextShow.Dto;
+using SuggestNextShow.Entry;
+using SuggestNextShow.Entry.Handlers;
+using SuggestNextShow.Entry.Handlers.Helpers;
 
 internal class Program
 {
@@ -21,6 +22,11 @@ internal class Program
                 HandleConsole.Exit(false, "Couldn't reach to site");
             }
             HandleConsole.AddStatus(true, "Site initial load is successfull");
+
+            //Handle login with credentials,
+            //NOTE: Do not forget to configure app.config files username and password sections
+            HandleLogin.SetCredentials(ConfigManager.GetCredentials());
+            await HandleLogin.LoginToSite(browser);
         }
 
         HandleConsole.Exit(true, "Succesfull");

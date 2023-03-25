@@ -1,4 +1,4 @@
-﻿namespace StockBridge.Entry.Handlers.Helpers
+﻿namespace SuggestNextShow.Entry.Handlers.Helpers
 {
     /// <summary>
     /// handle console and show current status.

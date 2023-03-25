@@ -1,4 +1,4 @@
-﻿namespace StockBridge.Dto
+﻿namespace SuggestNextShow.Dto
 {
     /// <summary>
     /// Gets data from config and keep them to use connection for cars.com

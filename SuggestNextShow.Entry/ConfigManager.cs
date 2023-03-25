@@ -1,7 +1,7 @@
-﻿using StockBridge.Dto;
+﻿using SuggestNextShow.Dto;
 using System.Configuration;
 
-namespace StockBridge.Entry
+namespace SuggestNextShow.Entry
 {
     /// <summary>
     /// read configuration datas from App.config file and return them.

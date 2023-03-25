@@ -1,7 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.OffScreen;
 
-namespace StockBridge.Entry.Handlers.Helpers
+namespace SuggestNextShow.Entry.Handlers.Helpers
 {
     /// <summary>
     /// Handler for browser to wait until current page load end
