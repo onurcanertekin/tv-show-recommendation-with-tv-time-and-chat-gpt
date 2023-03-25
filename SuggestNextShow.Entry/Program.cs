@@ -34,17 +34,8 @@ internal class Program
 
             await HandleRouting.RouteToProfile(browser);
 
-            List<string?>? showList = null;
-            //Try get all shows added by user
-            JavascriptResponse getAllShowsResult = await HandleShows.GetAllShows(browser);
-            if (getAllShowsResult.Success && getAllShowsResult.Result is List<object>)
-            {
-                showList = HandleLists.ObjectListToStringList(getAllShowsResult.Result as List<object>);
-            }
-            if (showList == null)
-            {
-                HandleConsole.Exit(false, "Couldn't read show list");
-            }
+            List<string> showList = await HandleShows.GetShowList(browser);
+
         }
 
         HandleConsole.Exit(true, "Succesfull");
