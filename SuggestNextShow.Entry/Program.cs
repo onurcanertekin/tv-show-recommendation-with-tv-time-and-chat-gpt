@@ -1,4 +1,5 @@
-﻿using CefSharp.OffScreen;
+﻿using CefSharp;
+using CefSharp.OffScreen;
 using SuggestNextShow.Dto;
 using SuggestNextShow.Entry;
 using SuggestNextShow.Entry.Handlers;
@@ -32,6 +33,18 @@ internal class Program
             await HandleLogin.LoginToSite(browser);
 
             await HandleRouting.RouteToProfile(browser);
+
+            List<string?>? showList = null;
+            //Try get all shows added by user
+            JavascriptResponse getAllShowsResult = await HandleShows.GetAllShows(browser);
+            if (getAllShowsResult.Success && getAllShowsResult.Result is List<object>)
+            {
+                showList = HandleLists.ObjectListToStringList(getAllShowsResult.Result as List<object>);
+            }
+            if (showList == null)
+            {
+                HandleConsole.Exit(false, "Couldn't read show list");
+            }
         }
 
         HandleConsole.Exit(true, "Succesfull");
