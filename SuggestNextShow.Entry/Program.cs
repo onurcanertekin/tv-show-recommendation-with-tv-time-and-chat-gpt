@@ -1,5 +1,5 @@
-﻿using CefSharp;
-using CefSharp.OffScreen;
+﻿using CefSharp.OffScreen;
+using OpenAI_API;
 using SuggestNextShow.Dto;
 using SuggestNextShow.Entry;
 using SuggestNextShow.Entry.Handlers;
@@ -36,6 +36,14 @@ internal class Program
 
             List<string> showList = await HandleShows.GetShowList(browser);
 
+            //Init openAiApi
+            OpenAIAPI openAiApi = new OpenAIAPI(ConfigManager.GetOpenAikey().ApiKey);
+
+            bool validateApiKey = await openAiApi.Auth.ValidateAPIKey();
+            if (validateApiKey == false)
+            {
+                HandleConsole.Exit(false, "Open AI Api key is not valid");
+            }
         }
 
         HandleConsole.Exit(true, "Succesfull");

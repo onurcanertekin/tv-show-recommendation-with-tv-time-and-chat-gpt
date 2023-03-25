@@ -7,8 +7,8 @@
     /// <br></br>
     /// With record declaration this data shouldn't allowed to change.
     /// </summary>
-    /// <param name="apiKey">site to connect uri</param>
-    public record OpenAiApiKeyDto(string apiKey)
+    /// <param name="ApiKey">site to connect uri</param>
+    public record OpenAiApiKeyDto(string ApiKey)
     {
     }
 }
