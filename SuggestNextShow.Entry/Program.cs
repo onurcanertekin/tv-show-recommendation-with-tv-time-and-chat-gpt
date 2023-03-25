@@ -30,6 +30,8 @@ internal class Program
             //NOTE: Do not forget to configure app.config files username and password sections
             HandleLogin.SetCredentials(ConfigManager.GetCredentials());
             await HandleLogin.LoginToSite(browser);
+
+            await HandleRouting.RouteToProfile(browser);
         }
 
         HandleConsole.Exit(true, "Succesfull");
