@@ -44,8 +44,17 @@ internal class Program
             {
                 HandleConsole.Exit(false, "Open AI Api key is not valid");
             }
-        }
 
-        HandleConsole.Exit(true, "Succesfull");
+            OpenAI_API.Chat.Conversation chat = openAiApi.Chat.CreateConversation();
+
+            //Get ready the chat for suggestion
+            HandleAiChat.AppendSystemMessage(chat);
+
+            //Send show list to chat
+            HandleAiChat.AppendUserInput(chat, showList);
+
+            //Get response from chatbot
+            await HandleAiChat.GetResponseFromChatbot(chat);
+        }
     }
 }
