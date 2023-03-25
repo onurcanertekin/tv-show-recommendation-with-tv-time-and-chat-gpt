@@ -23,6 +23,9 @@ internal class Program
             }
             HandleConsole.AddStatus(true, "Site initial load is successfull");
 
+            //Activate all three loading states wait
+            await HandleLoad.WaitForLoadingEnd(browser);
+
             //Handle login with credentials,
             //NOTE: Do not forget to configure app.config files username and password sections
             HandleLogin.SetCredentials(ConfigManager.GetCredentials());
